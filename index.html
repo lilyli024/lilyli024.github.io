@@ -1,22 +1,38 @@
 <h1>Validation of Climate Hazards Center's CHIRPS Data</h1>
 <h2>Comparing CHIRPS 2.0 to OSU's PRISM</h2>
-<p> By validating against Oregon State Univeristy's widely used PRISM data set, newer, more refined versions of CHIRPS can made. Unlike CHIRPS 2.0, PRISM has a finer 4x4 resolution, is based only on ground stations, and contains only US data. Due to differing spatial resolutions, we used linear interpolation to create a continuous surface from discrete coordinate points for PRISM.</p>
+<p> 
+By validating against Oregon State Univeristy's widely used PRISM data set, newer, more refined versions of CHIRPS can made. Unlike CHIRPS 2.0, PRISM has a finer 4x4 resolution, is based only on ground stations, and contains only US data. Due to differing spatial resolutions, we used linear interpolation to create a continuous surface from discrete coordinate points for PRISM.
+</p>
+  <h3>Annual and Monthly Average Differences in Daily Rainfall Between CHIRPS 2.0 and PRISM</h3>
+  <p> 
+  To create our continuous colormaps, find differences in datasets’ averages and maximums over a period of time, we must utilize two datasets of the same resolution. We linearly interpolated the PRISM grid to match CHIRPS 2.0 resolution to make point comparisons. In other words, we created a continuous surface from discrete coordinate points from PRISM data by taking the weighted average precipitation in mm of the nearest points. Linear interpolation, in comparison to other interpolation methods, assigns coordinates weight based on proximity to the point that we want from the CHIRPS grid. 
+  </p>
+    <h4 align="center">Fig.1: Average Differences in Daily Precipitation between CHIRPS 2.0 and PRISM in 2015</h4> 
+  <div> 
+  <p style="text-align:center;">
+    <img src="img/Fig1-AnnualDiff.png" width="350"/> 
+  </div>
+  <h4 align="center">Fig.2: Annual Averages of Daily Precipitation in 2015</h4> 
+  <div> 
+  <p style="text-align:center;"> 
+    <img src="img/Fig2-AnnualAvg2015.png" width="600"/> 
+  </div>
+<p>For the South and Midwest, the rainy season extends from May to the end of the year, which is when we see the most coordinates of extreme differences and the highest differences in those regions. As seasons change, the monthly averages for CHIRPS can be higher. However, the monthly differences of both datasets are typically greater than 2 mm. </p>
+
+  <div>
+    <h3> Differences in Monthly Rainfall between CHIRPS 2.0 and PRISM</h3>
+    <h4 style="text-align:center;"> Fig.3: Differences in Monthly Rainfall between CHIRPS 2.0 and PRISM 2000-2020</h4>
+    <p style="text-align:center;"> 
+      <img src="img/chirpsprism.gif" width="600"/>
+  </div> 
+
 <div>
-  <h4>Annual Difference in Daily Rainfall CHIRPS 2.0 - PRISM</h4>
-  <div> <p style="text-align:center;"><img src="img/CHC-Shrad-Fig1-AnnualDiff.png" width="350"/> </div>
-  <div> <p style="text-align:center;"> <img src="img/annualavg2015.png" width="600"/> </div>
+  <h3>Thresholds CHIRPS 2.0 - PRISM</h3>
+  <p>For each threshold, we have excluded data that does have precipitation within range.</p>
+  <p style="text-align:center;"> 
+    <img src="img/thresholds.png" width="1200" />
+  <p>The annual sum of the number of days with 0 mm of rainfall is used to measure dry days and to determine extreme data between datasets. From this, we see that CHIRPS contains significantly more dry days than PRISM, and by looking at the Midwest concentration, there are also overall days of high precipitation over 5 mm in CHIRPS than PRISM. Since most of the daily data for PRISM seems to live between (0,5) mm of daily precipitation, there is potentially an error detecting drizzle in CHIRPS since it is reading more days with 0 mm PRISM is reading. </p>
 </div> 
-<div>
-  <h4>Monthly Difference in Daily Rainfall CHIRPS 2.0 - PRISM</h4>
-  <img src="img/CHC-Shrad-Fig1-MonDiff.png" width="500"/>
-</div> 
-<div>
-  <h4>Thresholds CHIRPS 2.0 - PRISM</h4>
-  <img src="img/chirpsprism2015diff.png" width="1200" />
-</div> 
-<div>
-  <h4>Differences Throughout the Years</h4>
-  <img src="img/chirpsprism.gif" width="600" />
-</div> 
+
 
 
