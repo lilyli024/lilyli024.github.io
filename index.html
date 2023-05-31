@@ -1,5 +1,28 @@
 <h1>Data Science Capstone Project: Validation of Climate Hazards Center's CHIRPS Data</h1>
 <h4> Fei Du, Lily Li, Hannah Li, Eric Yoon <br> Sponsor: Shrad Shukla, UCSB Climate Hazards Center <br> Mentor: Enbo Zhou</h4>
+<h2> About the Data</h2>
+<p>
+  The datasets are gridded, each with varying spatial resolutions, and global vs U.S. 
+coverage and land and ocean vs land coverage
+CHC’s InfraRed Precipitation with Stations (CHIRPS)
+<ul>
+<li>Constructed from satellites, ground stations, and climatology averages</li>
+<li>5 x 5 km spatial resolution</li>
+<li>Global dataset</li>
+</ul>
+Oregon State University’s PRISM
+<ul>
+<li>Constructed from ground stations</li>
+<li>4 x 4 km spatial resolution</li>
+<li>U.S. only dataset</li>
+</ul>
+NASA’s IMERG: Integrated Multi-Satellite Retrievals for GPM
+<ul>
+<li>Estimates from the GPM satellites</li>
+<li>10 x 10 km spatial resolution</li>
+<li>Global dataset</li>
+</ul>
+</p>
 <h2>Comparing CHIRPS 2.0 to OSU's PRISM</h2>
 <p> 
 By validating against Oregon State Univeristy's widely used PRISM data set, newer, more refined versions of CHIRPS can made. Unlike CHIRPS 2.0, PRISM has a finer 4x4 resolution, is based only on ground stations, and contains only US data. Due to differing spatial resolutions, we used linear interpolation to create a continuous surface from discrete coordinate points for PRISM.
