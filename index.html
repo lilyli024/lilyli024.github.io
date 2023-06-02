@@ -7,8 +7,7 @@
   </p>
 <h2> II. About the Data</h2>
 <p>
-  The Climate Hazard Center generates precipitation datasets based on a combination of satellite imaging and ground stations, which we are investigating for systematic errors. Their Climate Hazards Center InfraRed Precipitation with Stations (CHIRPS) dataset is a gridded global dataset with spatial resolution of 0.05 degrees (5 x 5 km), and includes information including longitude, latitude, precipitation (in mm), and time (by day). 
-The goal of this project is to compare the newest version of CHIRPS, CHIRPS 3.0, to other precipitation datasets and quantify the daily performance of CHIRPS in comparison. We want to know if CHIRPS data is reliable and can be used in future research, so by validating CHIRPS against other datasets, more refined versions of CHIRPS can be released and used for analysis. The datasets used for comparison are gridded each with varying spatial resolutions and global vs U.S. coverage. Our exploratory data includes:
+  The Climate Hazard Center generates precipitation datasets based on a combination of satellite imaging and ground stations, which we are investigating for systematic errors. Their Climate Hazards Center InfraRed Precipitation with Stations (CHIRPS) dataset is a gridded global dataset with spatial resolution of 0.05 degrees (5 x 5 km), and includes information including longitude, latitude, precipitation (in mm), and time (by day). Our exploratory data includes:
 </p>
 <p>CHC’s InfraRed Precipitation with Stations (CHIRPS)</p>
 <ul>
@@ -30,6 +29,13 @@ NASA’s IMERG: Integrated Multi-Satellite Retrievals for GPM
 </ul>
 
 <h2>III. Problems of Interest</h2>
+<p>The goal of this project is to compare the newest version of CHIRPS, CHIRPS 3.0, to other precipitation datasets and quantify the daily performance of CHIRPS in comparison. We want to know if CHIRPS data is reliable and can be used in future research, so by validating CHIRPS against other datasets, more refined versions of CHIRPS can be released and used for analysis. The datasets used for comparison are gridded each with varying spatial resolutions and global vs U.S. coverage. Our main objectives comprise of: </p>
+<ul>
+<li>Investigate daily & monthly rainfall intensity and number of dry & rainy days in CHIRPS & other widely used datasets to suggest improvements for a newer, more refined version of CHIRPS </li>
+<li>Compare & identify long-term changes in precipitation with time series and spatial analysis techniques </li>
+<li>Identify regional and seasonal differences at various levels (daily, monthly, yearly)</li>
+</ul>
+
 <h2>IV. Results</h2>
 <h3>(a) Comparing CHIRPS 2.0 to OSU's PRISM</h3>
 <p> 
@@ -88,34 +94,34 @@ By validating against Oregon State Univeristy's widely used PRISM data set, newe
 <h4 align="center">Fig.8: Comparing CHIRPS 2.0 and 3.0 to IMERG Using 2000-2021 Data</h4>
   <p style="text-align:center;"> 
     <img src="img/chirps_imerg_corre.png" width="800" />
-    
+<p>Correlation varies Northern Africa, Eastern Europe, and Central Asia, but correlation to IMERG is very strong for both versions of CHIRPS.</p>
 <h3>(c) Comparing CHIRPS 3.0 to CHIRPS 2.0</h3>
 <h4>Number of Rainy Days with over 5mm Rainfall</h4>
-
+<p>The following process was replicated to identify differences in dry days, days with any rainfall, and the average probability of rainfall. We concluded that CHIRPS 2.0 is most closely related to PERSIANN-CDR and NOAA CPC.</p>
 <h4 align="center">Fig.9: Comparing CHIRPS 3.0 based off of NOAA CPC to CHIRPS 2.0</h4>
   <p style="text-align:center;"> 
     <img src="img/CPC_IR_CHIRPS2.png" width="800" />
 <p> 
-CHIRPS 3.0 CPC IR is based off of NOAA Center for Weather and Climate Prediction MORPHing technique for precipitation estimation using low orbiter satellite observations.
+CHIRPS 3.0 CPC IR is based off of NOAA Center for Weather and Climate Prediction MORPHing technique for precipitation estimation using low orbiter satellite observation. Largest differences exist in Southeast Asia, East Asia, and South America.
 </p>
 
 <h4 align="center">Fig.10: Comparing CHIRPS 3.0 based off of ECMWF ERA5 to CHIRPS 2.0</h4>
   <p style="text-align:center;"> 
     <img src="img/ERA5_CHIRPS2.png" width="800" />
 <p> 
-CHIRPS 3.0 ERA5 is based off of European Centre for Medium-Range Weather Forecasts Re-Analysis, which combines data from observation satellites, ground stations, and modeling from historical data.
+CHIRPS 3.0 ERA5 is based off of European Centre for Medium-Range Weather Forecasts Re-Analysis, which combines data from observation satellites, ground stations, and modeling from historical data. This version of CHIRPS 3.0 reports more days with intense rainfall.
 </p>
 
 <h4 align="center">Fig.11: Comparing CHIRPS 3.0 based off of NOAA PERSIANN-CDR to CHIRPS 2.0</h4>
   <p style="text-align:center;"> 
     <img src="img/PERSIANNCDR_CHIRPS2.png" width="800" />
 <p> 
-PERSIANN-CDR stands for Precipitation Estimation from Remotely Sensed Information using Artificial Neural Networks - Climate Data Record from NOAA.
+PERSIANN-CDR stands for Precipitation Estimation from Remotely Sensed Information using Artificial Neural Networks - Climate Data Record from NOAA. Differences in days with over 5mm of rainfall almost become negative in Sub-Saharan Africa, Southeast Asia, Central America, and South America; this suggests that CHIRPS 3.0 reports less intense rainfall than CHIRPS 2.0 over time.
 </p>
 
-<h4 align="center">Fig.12: Comparing CHIRPS 3.0 based off of NASA's IMERGE Late Run to CHIRPS 2.0</h4>
+<h4 align="center">Fig.12: Comparing CHIRPS 3.0 based off of NASA's IMERG Late Run to CHIRPS 2.0</h4>
   <p style="text-align:center;"> 
     <img src="img/IMERGLate_CHIRPS2.png" width="800" />
 <p> 
-This version of IMERG from NASA uses an algorithm intended to merge and interpolate various sources of satellite data.
+This version of IMERG from NASA uses an algorithm intended to merge and interpolate various sources of satellite data. This version of CHIRPS 3.0 reports less days of intense rainfall than CHIRPS 2.0.
 </p>
