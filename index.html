@@ -1,10 +1,16 @@
 <h1>Data Science Capstone Project: Validation of Climate Hazards Center's CHIRPS Data</h1>
 <h4> Fei Du, Lily Li, Hannah Li, Eric Yoon <br> Sponsor: Shrad Shukla, UCSB Climate Hazards Center <br> Mentor: Enbo Zhou</h4>
-<h2> About the Data</h2>
+
+<h2>I. Background</h2>
+  <p>
+    The UCSB Climate Hazards Center (CHC) is made up of a small group of researchers using precipitation data, crop models, and socioeconomic data to predict and monitor food shortages. Analyzing daily precipitation data is essential for preventing and understanding climate hazards such as floods and droughts, and improving management and utilization of water resources. The data findings serve as evidence to governments, international relief agencies, journalists, and researchers planning for, responding to, and reporting on humanitarian crises. The CHC works closely with the Famine Early Warnings Systems Network as well as other international organizations to deliver monthly and annual reports of weather hazards and crop production to help the most food-insecure countries receive assistance for food emergencies. Developing cutting edge datasets to monitor precipitation conditions can ultimately help reduce food insecurity in the developing world. We want to investigate daily rainfall intensity and compare and identify long-term changes in precipitation against other widely used rainfall datasets. In our exploratory analysis, we compare datasets to detect regional and seasonal biases that could indicate issues in how the data is weighed from different sources.
+  </p>
+<h2> II. About the Data</h2>
 <p>
-  The datasets are gridded, each with varying spatial resolutions, and global vs U.S. 
-coverage and land and ocean vs land coverage
-CHC’s InfraRed Precipitation with Stations (CHIRPS)
+  The Climate Hazard Center generates precipitation datasets based on a combination of satellite imaging and ground stations, which we are investigating for systematic errors. Their Climate Hazards Center InfraRed Precipitation with Stations (CHIRPS) dataset is a gridded global dataset with spatial resolution of 0.05 degrees (5 x 5 km), and includes information including longitude, latitude, precipitation (in mm), and time (by day). 
+The goal of this project is to compare the newest version of CHIRPS, CHIRPS 3.0, to other precipitation datasets and quantify the daily performance of CHIRPS in comparison. We want to know if CHIRPS data is reliable and can be used in future research, so by validating CHIRPS against other datasets, more refined versions of CHIRPS can be released and used for analysis. The datasets used for comparison are gridded each with varying spatial resolutions and global vs U.S. coverage. Our exploratory data includes:
+</p>
+<p>CHC’s InfraRed Precipitation with Stations (CHIRPS)</p>
 <ul>
 <li>Constructed from satellites, ground stations, and climatology averages</li>
 <li>5 x 5 km spatial resolution</li>
@@ -22,12 +28,14 @@ NASA’s IMERG: Integrated Multi-Satellite Retrievals for GPM
 <li>10 x 10 km spatial resolution</li>
 <li>Global dataset</li>
 </ul>
-</p>
-<h2>Comparing CHIRPS 2.0 to OSU's PRISM</h2>
+
+<h2>III. Problems of Interest</h2>
+<h2>IV. Results</h2>
+<h3>(a) Comparing CHIRPS 2.0 to OSU's PRISM</h3>
 <p> 
 By validating against Oregon State Univeristy's widely used PRISM data set, newer, more refined versions of CHIRPS can made. Unlike CHIRPS 2.0, PRISM has a finer 4x4 resolution, is based only on ground stations, and contains only US data. Due to differing spatial resolutions, we used linear interpolation to create a continuous surface from discrete coordinate points for PRISM.
 </p>
-  <h3>Annual and Monthly Average Differences in Daily Rainfall Between CHIRPS 2.0 and PRISM</h3>
+  <h4>Annual and Monthly Average Differences in Daily Rainfall Between CHIRPS 2.0 and PRISM</h4>
   <p> 
   To create our continuous colormaps, find differences in datasets’ averages and maximums over a period of time, we must utilize two datasets of the same resolution. We linearly interpolated the PRISM grid to match CHIRPS 2.0 resolution to make point comparisons. In other words, we created a continuous surface from discrete coordinate points from PRISM data by taking the weighted average precipitation in mm of the nearest points. Linear interpolation, in comparison to other interpolation methods, assigns coordinates weight based on proximity to the point that we want from the CHIRPS grid. 
   </p>
@@ -44,7 +52,7 @@ By validating against Oregon State Univeristy's widely used PRISM data set, newe
 <p>For the South and Midwest, the rainy season extends from May to the end of the year, which is when we see the most coordinates of extreme differences and the highest differences in those regions. As seasons change, the monthly averages for CHIRPS can be higher. However, the monthly differences of both datasets are typically greater than 2 mm. </p>
 
   <div>
-    <h3> Differences in Monthly Rainfall between CHIRPS 2.0 and PRISM</h3>
+    <h4> Differences in Monthly Rainfall between CHIRPS 2.0 and PRISM</h4>
     <h4 style="text-align:center;"> Fig.3: Differences in Monthly Rainfall between CHIRPS 2.0 and PRISM 2000-2020</h4>
     <p style="text-align:center;"> 
       <img src="img/chirpsprism.gif" width="600"/>
@@ -52,7 +60,7 @@ By validating against Oregon State Univeristy's widely used PRISM data set, newe
 
 <!--Thresholds-->
 <div>
-  <h3>Thresholds CHIRPS 2.0 - PRISM</h3>
+  <h4>Thresholds CHIRPS 2.0 - PRISM</h4>
   <p>For each threshold, we have excluded data that does have precipitation within range.</p>
   <p style="text-align:center;"> 
     <img src="img/thresholds.png" width="1200" />
@@ -60,12 +68,12 @@ By validating against Oregon State Univeristy's widely used PRISM data set, newe
 </div>
 
 
-<h3>Euclidean Distance</h3>
+<h4>Euclidean Distance</h4>
 <h4 align="center">Fig.5: Euclidean Distance Throughout the Years 1981-2022</h4>
   <p style="text-align:center;"> 
     <img src="img/euclidean_yearly.gif" width="600" />
 
-<h3>Dyanamic Time Warping</h3>
+<h4>Dyanamic Time Warping</h4>
   <p>fastdtw package used is an approximation of dynamic time warping for computation efficiency</p>
   <h4 align="center">Fig.6: Normalized DTW</h4>
   <p style="text-align:center;"> 
@@ -75,14 +83,14 @@ By validating against Oregon State Univeristy's widely used PRISM data set, newe
   <p style="text-align:center;"> 
     <img src="img/dtw_yearly.gif" width="600" />
     
-<h2>Comparing CHIRPS to NASA's IMERG</h2>
+<h3>(b) Comparing CHIRPS to NASA's IMERG</h3>
 <h3>Pearson Correlation Coefficient</h3>
 <h4 align="center">Fig.8: Comparing CHIRPS 2.0 and 3.0 to IMERG Using 2000-2021 Data</h4>
   <p style="text-align:center;"> 
     <img src="img/chirps_imerg_corre.png" width="800" />
     
-<h2>Comparing CHIRPS 3.0 to CHIRPS 2.0</h2>
-<h3>Number of Rainy Days with over 5mm Rainfall</h3>
+<h3>(c) Comparing CHIRPS 3.0 to CHIRPS 2.0</h3>
+<h4>Number of Rainy Days with over 5mm Rainfall</h4>
 
 <h4 align="center">Fig.9: Comparing CHIRPS 3.0 based off of NOAA CPC to CHIRPS 2.0</h4>
   <p style="text-align:center;"> 
